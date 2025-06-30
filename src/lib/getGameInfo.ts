@@ -50,6 +50,6 @@ export function generateShareText({ guesses, isWin, hardMode }: { guesses: HexDa
         hexEmojis.push(hexEmoji)
     }
 
-    const attempts = `${isWin ? guesses.length : 'X'}/${MAX_GUESSES}${hardMode && '*'}`
+    const attempts = `${isWin ? guesses.length : 'X'}/${MAX_GUESSES}${hardMode ? '*' : ''}`
     return `Hexdle No. ${gameNumber} ${attempts}\n\n${hexEmojis.join('\n')}`
 }
