@@ -1,0 +1,312 @@
+@import 'tailwindcss';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-tektur: 'Tektur', sans-serif;
+    --color-imperial-red: #ed2939;
+    --color-imperial-red-shade: #6f0a12;
+    --color-imperial-red-tint: #f7a5ab;
+    --color-byzantine-blue: #3457d5;
+    --color-byzantine-blue-shade: #13245e;
+    --color-byzantine-blue-tint: #a8B7ed;
+    --color-lime-green: #32cd32;
+    --color-lime-green-shade: #155815;
+    --color-lime-green-tint: #a7Eaa7;
+    
+    --color-light-100: #f8fafc;
+    --color-light-300: #bcccdc;
+    --color-light-400: #9aa6b2;
+    --color-primary-light: #000;
+    --color-primary: #000;
+    --color-modal: #fff;
+
+    --color-dark-100: #212529;
+    --color-dark-300: #495057;
+    --color-dark-400: #6C757D;
+    --color-primary-dark: #fff;
+    --color-modal-dark: #495057;
+
+    --animate-shine: shine 8s ease-in-out infinite alternate;
+    --animate-bounce: miniBounce 1.2s ease-in-out;
+    --animate-flip: flip 0.7s ease forwards;
+    --animate-flip-dark: flip-dark 0.7s ease forwards;
+    --animate-pop-scale: pop-scale 0.15s ease forwards;
+    --animate-shake: shake 0.5s ease-in-out;
+
+    @keyframes shine {
+        0% {
+            background-position: 0%;
+        }
+
+        50% {
+            text-shadow: 1.2px 1.2px 3.5px rgba(0, 0, 0, 0.5);
+        }
+
+        100% {
+            background-position: 100%;
+        }
+    }
+
+    @keyframes flip {
+        0% {
+            transform: scaleY(1);
+            background-color: var(--color-light-100);
+            color: var(--color-primary-light);
+            border-color: var(--color-light-400);
+        }
+
+        50% {
+            transform: scaleY(0);
+            background-color: var(--color-light-100);
+            color: var(--color-primary-light);
+            border-color: var(--color-light-400);
+        }
+
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes flip-dark {
+        0% {
+            transform: scaleY(1);
+            background-color: var(--color-dark-100);
+            color: var(--color-primary-dark);
+            border-color: var(--color-dark-400);
+        }
+
+        50% {
+            transform: scaleY(0);
+            background-color: var(--color-dark-100);
+            color: var(--color-primary-dark);
+            border-color: var(--color-dark-400);
+        }
+
+        100% {
+            transform: scaleY(1);
+        }
+    }
+
+    @keyframes miniBounce {
+        0% {
+            transform: translateY(0);
+        }
+
+        15% {
+            transform: translateY(-12px);
+        }
+
+        30% {
+            transform: translateY(8px);
+        }
+
+        45% {
+            transform: translateY(-6px);
+        }
+
+        60% {
+            transform: translateY(3px);
+        }
+
+        75% {
+            transform: translateY(-2px);
+        }
+
+        90% {
+            transform: translateY(1px);
+        }
+
+        100% {
+            transform: translateY(0);
+        }
+    }
+
+    @keyframes shake {
+        0% {
+            transform: translateX(0);
+        }
+
+        15% {
+            transform: translateX(-10px);
+        }
+
+        30% {
+            transform: translateX(8px);
+        }
+
+        45% {
+            transform: translateX(-6px);
+        }
+
+        60% {
+            transform: translateX(4px);
+        }
+
+        75% {
+            transform: translateX(-2px);
+        }
+
+        90% {
+            transform: translateX(1px);
+        }
+
+        100% {
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes pop-scale {
+        0% {
+            transform: scale(1.15);
+        }
+
+        100% {
+            transform: scale(1);
+        }
+    }
+}
+
+@font-face {
+    font-family: 'Tektur';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../assets/fonts/Tektur/tektur-v3-latin-700.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url("../assets/fonts/Nunito/nunito-v26-latin-regular.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 500;
+    font-display: swap;
+    src: url("../assets/fonts/Nunito/nunito-v26-latin-500.woff2") format("woff2");
+}
+
+@font-face {
+    font-family: 'Nunito';
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url("../assets/fonts/Nunito/nunito-v26-latin-700.woff2") format("woff2");
+}
+
+html {
+    font-family: "Nunito", sans-serif;
+    user-select: none;
+    touch-action: manipulation;
+    @apply bg-light-100 dark:bg-dark-100;
+}
+
+.btn {
+    @apply cursor-pointer select-none;
+    @apply duration-500 transition-colors hover:text-light-100 hover:bg-light-400;
+    @apply active:bg-light-400 active:text-light-100;
+
+    @variant dark {
+        @apply hover:bg-dark-400 hover:text-dark-100;
+        @apply active:bg-dark-400 active:text-dark-100;
+    }
+}
+
+.btn-splash-page {
+    @apply py-2 rounded-full text-xl md:text-2xl w-50;
+}
+
+.btn-modal {
+    @apply py-2 rounded-xl text-[12px] md:text-[14px] bg-light-300;
+
+    @variant dark {
+        @apply bg-dark-300;
+    }
+}
+
+.key-btn {
+    @apply bg-light-400 select-none cursor-pointer rounded-md;
+    @apply active:bg-black/50;
+
+    @variant dark {
+        @apply bg-dark-400 active:bg-black/20;
+    }
+}
+
+.shine-title {
+    @apply font-tektur tracking-wide whitespace-nowrap animate-shine;
+    background: linear-gradient(110deg,
+            var(--color-primary-light) 0%,
+            var(--color-primary-light) 38%,
+            #333333 40%,
+            var(--color-imperial-red) 55%,
+            var(--color-byzantine-blue) 65%,
+            var(--color-lime-green) 85%);
+
+    @variant dark {
+        background: linear-gradient(110deg,
+                var(--color-primary-dark) 0%,
+                var(--color-primary-dark) 38%,
+                #fdfdfd 40%,
+                var(--color-imperial-red) 55%,
+                var(--color-byzantine-blue) 65%,
+                var(--color-lime-green) 85%);
+    }
+
+    background-size: 250%;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.empty-tile {
+    @apply text-primary border-light-400;
+
+    @variant dark {
+        @apply border-dark-400;
+    }
+}
+
+.red-match {
+    @apply bg-imperial-red text-white border-imperial-red;
+}
+
+.red-high {
+    @apply bg-imperial-red-shade text-white border-imperial-red-shade;
+}
+
+.red-low {
+    @apply bg-imperial-red-tint text-white border-imperial-red-tint;
+}
+
+.blue-match {
+    @apply bg-byzantine-blue text-white border-byzantine-blue;
+}
+
+.blue-high {
+    @apply bg-byzantine-blue-shade text-white border-byzantine-blue-shade;
+}
+
+.blue-low {
+    @apply bg-byzantine-blue-tint text-white border-byzantine-blue-tint;
+}
+
+.green-match {
+    @apply bg-lime-green text-white border-lime-green;
+}
+
+.green-high {
+    @apply bg-lime-green-shade text-white border-lime-green-shade;
+}
+
+.green-low {
+    @apply bg-lime-green-tint text-white border-lime-green-tint;
+}

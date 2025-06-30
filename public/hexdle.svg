@@ -1,0 +1,59 @@
+<svg width="32" height="32" xmlns="http://www.w3.org/2000/svg">
+  <g>
+    <title>Layer 1</title>
+    <path
+      d="
+        M5.0625,0.9375
+        H10.3925
+        V10.2675
+        H1.0625
+        V4.9375
+        A4,4 0 0 1 5.0625,0.9375
+        Z"
+      fill="#6f0a12"
+      stroke="#000"
+      stroke-width="0"
+    />
+    <rect stroke-width="0" stroke-dasharray="—" stroke="#000" height="9.33" width="9.33" y="1" x="11.33" fill="#155815"/>
+    <path
+      d="
+        M21.666,1
+        H26.996
+        A4,4 0 0 1 30.996,5
+        V10.33
+        H21.666
+        Z"
+      fill="#a8b7ed"
+      stroke="#000"
+      stroke-width="0"
+    />
+    <rect stroke-width="0" stroke-dasharray="—" stroke="#000" height="9.33" width="9.33" y="11.333" x="1" fill="#6f0a12"/>
+    <rect stroke-width="0" stroke-dasharray="—" stroke="#000" height="9.33" width="9.33" y="11.333" x="11.333" fill="#a7eaa7"/>
+    <rect stroke-width="0" stroke-dasharray="—" stroke="#000" height="9.33" width="9.33" y="11.3333" x="21.666" fill="#13245e"/>
+    <path
+      d="
+        M1.0625,21.6666
+        H10.3925
+        V30.9966
+        H5.0625
+        A4,4 0 0 1 1.0625,26.9966
+        Z"
+      fill="#ed2939"
+      stroke="#000"
+      stroke-width="0"
+    />
+    <rect stroke-width="0" stroke-dasharray="—" stroke="#000" height="9.33" width="9.33" y="21.6666" x="11.3333" fill="#32cd32"/>
+    <path
+      d="
+        M21.7291,21.6041
+        H31.0591
+        V26.9341
+        A4,4 0 0 1 27.0591,30.9341
+        H21.7291
+        Z"
+      fill="#3457d5"
+      stroke="#000"
+      stroke-width="0"
+    />
+  </g>
+</svg>
