@@ -1,16 +1,20 @@
-import { getGameInfo } from '@/lib/getGameInfo'
+import { GAME_STATUSES } from '@/constants'
+import { getGameInfo, getGameSubtitle } from '@/lib/getGameInfo'
+import type { GameStatus } from '@/types'
+// import { useNavigate } from 'react-router'
 
 interface Props {
     onClickPlay?: () => void,
-    hasGameEnded: boolean
+    status: GameStatus | null,
+    guesses: string[]
 }
 
-export const SplashPage = ({ onClickPlay, hasGameEnded }: Props) => {
+export const SplashPage = ({ onClickPlay, status, guesses }: Props) => {
     const { gameNumber, todayToString } = getGameInfo()
-    const subtitle = hasGameEnded
-        ? 'Great job on today’s puzzle! Check out your progress.'
-        : 'Get 6 chances to guess a hex color.'
-    const textButton = hasGameEnded
+    // const navigate = useNavigate()
+    const isGameOver = status && status !== GAME_STATUSES.IN_PROGRESS
+    const subtitle = getGameSubtitle({status, guesses})
+    const textButton = isGameOver
         ? 'See Stats'
         : 'Play'
 
@@ -24,7 +28,10 @@ export const SplashPage = ({ onClickPlay, hasGameEnded }: Props) => {
             </h2>
 
             <div className="flex flex-col items-center justify-evenly md:flex-row gap-4 my-10 w-full xl:w-1/2">
-                {/* <button className="btn btn-splash-page border-[1.6px] border-solid border-light-400 dark:border-dark-400">
+                {/* <button
+                    className="btn btn-splash-page border-[1.6px] border-solid border-light-400 dark:border-dark-400"
+                    onClick={() => navigate("/log")}
+                >
                     Log in
                 </button> */}
                 <button

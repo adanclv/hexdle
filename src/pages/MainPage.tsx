@@ -8,9 +8,11 @@ import { GAME_STATUSES } from "@/constants";
 export const MainPage = () => {
   const [isActive, setIsActive] = useState<boolean>(false);
   const { gameContext } = useContext(GameContext)
-  const hasGameEnded = gameContext?.status
-    ? gameContext.status !== GAME_STATUSES.IN_PROGRESS
+  const { status, boardState } = gameContext
+  const hasGameEnded = status
+    ? status !== GAME_STATUSES.IN_PROGRESS
     : false
+  
 
   const handleClick = () => {
     const newState = !isActive;
@@ -21,7 +23,7 @@ export const MainPage = () => {
     <>
       {isActive
         ? <Game hasGameEnded={hasGameEnded} />
-        : <SplashPage onClickPlay={handleClick} hasGameEnded={hasGameEnded} />
+        : <SplashPage onClickPlay={handleClick} status={status} guesses={boardState} />
       }
     </>
   )

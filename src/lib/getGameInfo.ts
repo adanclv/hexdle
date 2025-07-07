@@ -1,6 +1,7 @@
-import { feedbackWords } from "@/constants";
+import { feedbackWords, GAME_STATUSES } from "@/constants";
 import type { HexData, HexDigit } from "@/features/game/types";
 import { STATUSES, MAX_GUESSES } from "@/features/game/constants";
+import type { GameStatus } from "@/types";
 
 export function getGameInfo() {
     const startDate = new Date('2025-06-26');
@@ -52,4 +53,19 @@ export function generateShareText({ guesses, isWin, hardMode }: { guesses: HexDa
 
     const attempts = `${isWin ? guesses.length : 'X'}/${MAX_GUESSES}${hardMode ? '*' : ''}`
     return `Hexdle No. ${gameNumber} ${attempts}\n\n${hexEmojis.join('\n')}`
+}
+
+export function getGameSubtitle({ status, guesses }: { status: GameStatus | null, guesses: string[] }) {
+  const isGameOver = status && status !== GAME_STATUSES.IN_PROGRESS
+  const attempts = guesses?.length ?? 0
+
+  if (!status) return 'Get 6 chances to guess a hex color.'
+
+  if (isGameOver) {
+    return status === GAME_STATUSES.WON
+      ? "Great job on today’s puzzle! Check out your progress."
+      : "Tomorrow's a new day, with a new puzzle. See you then."
+  }
+
+  return `You've made ${attempts} of ${MAX_GUESSES} guesses. Keep it up!`
 }

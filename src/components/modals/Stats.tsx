@@ -38,7 +38,6 @@ export const ContentStats = ({ gameStats }: ContentStatsProps) => {
             </article>
 
             <GuessDistribution guesses={guesses} currentRow={currentRow}/>
-            
         </section>
     )
 }
